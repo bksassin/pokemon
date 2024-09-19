@@ -1,0 +1,56 @@
+<div class="min-h-screen bg-cover bg-center flex items-center justify-center relative py-4" style="background-image: url('/assets/pokee.jpg');">
+  <div class="absolute inset-0 bg-gradient-to-br from-teal-800/95 to-purple-900/95"></div>
+
+  <div class="relative z-10 bg-white bg-opacity-10 p-6 md:p-8 rounded-3xl w-11/12 max-w-3xl backdrop-blur-md shadow-lg overflow-y-auto max-h-[90vh] custom-scrollbar">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-center text-purple-500">How to Play</h1>
+
+    <div class="text-white space-y-4 mb-6">
+      <p>Welcome, Trainer! Professor Oak here to guide you through this exciting Pokémon card guessing game. Are you ready to test your Pokémon knowledge? Let's begin!</p>
+
+      <h2 class="text-2xl font-bold text-purple-500">Game Objective</h2>
+      <p>Identify as many Pokémon as you can from their blurred card images to earn points and climb the trainer leaderboards.</p>
+
+      <h2 class="text-2xl font-bold text-purple-500">Gameplay Instructions</h2>
+      <ol class="list-decimal list-inside space-y-2">
+        <li><span class="text-yellow-300">Observe the Card:</span> A blurred Pokémon card will appear on your screen.</li>
+        <li><span class="text-yellow-300">Make Your Guess:</span> Choose the correct Pokémon name from the given options.</li>
+        <li><span class="text-green-300">Score Points:</span> Earn 1 point for each correct guess.</li>
+        <li><span class="text-red-400">Be Cautious:</span> Two incorrect guesses on the same card will restart your game, so think carefully!</li>
+        <li><span class="text-yellow-300">Use Hints:</span> Pay attention to the Pokémon type hint to narrow down your choices.</li>
+        <li><span class="text-green-300">Skip Challenging Cards:</span> Earn 1 "Run" for every 50 points in your high score. Use these to skip difficult cards without penalty.</li>
+        <li><span class="text-yellow-300">Climb the Leaderboards:</span> Compete against other trainers to see who can achieve the highest score!</li>
+      </ol>
+
+      <h2 class="text-2xl font-bold text-purple-500">Tips for Success</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li><span class="text-yellow-300">Study your Pokémon!</span> Familiarize yourself with different Pokémon shapes and silhouettes.</li>
+        <li><span class="text-yellow-300">Use the type hint wisely</span> to eliminate unlikely options.</li>
+        <li><span class="text-red-400">If you're unsure,</span> it's sometimes better to use a "Run" than risk two wrong guesses.</li>
+        <li><span class="text-green-300">Practice regularly</span> to improve your recognition skills and reaction time.</li>
+      </ul>
+
+      <p>Remember, the goal is to have fun while testing and expanding your Pokémon knowledge. Good luck, Trainer, and may the best Pokémon master win!</p>
+    </div>
+
+    <div class="flex flex-col space-y-4">
+      <button class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-teal-400 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        Login
+      </button>
+      <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+        </svg>
+        Sign Up
+      </button>
+      <button (click)="playGame()" class="bg-white text-purple-800 font-bold py-3 px-6 rounded-full text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+        </svg>
+        Play as Guest
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="flex justify-center items-center p-4 md:mt-14">
+  <div class="pokedex bg-red-700 p-8 rounded-3xl shadow-2xl flex flex-col md:flex-row max-w-4xl w-full">
+    <!-- Left Panel -->
+    <div class="left-panel mb-4 md:mb-0 md:mr-4 bg-red-800 p-4 rounded-2xl flex-1 relative">
+      <!-- Top Elements: Lens, Buttons, and Score -->
+      <div class="top-elements flex items-center mb-4">
+        <div class="lens-buttons-group flex items-center">
+          <div class="lens w-14 h-14 bg-blue-400 rounded-full border-4 border-white mr-4 shadow-inner"></div>
+          <div class="small-buttons flex space-x-2">
+            <div class="small-button w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>
+            <div class="small-button w-4 h-4 bg-yellow-500 rounded-full border-2 border-white"></div>
+            <div class="small-button w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+          </div>
+        </div>
+        <div class="score-group ml-32">
+          <div class="high-score-display bg-yellow-400 px-2 py-1 rounded-t-md shadow-md text-center">
+            <p class="text-xs font-bold text-gray-800">High: <span>{{highScore}}</span></p>
+          </div>
+          <div class="score-display bg-green-500 p-1 rounded-b-md border-2 border-t-0 border-gray-300 shadow-inner text-center">
+            <p class="text-white font-bold text-xs">Score: <span>{{score}}</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pokemon Card Screen -->
+      <div class="screen bg-blue-200 h-80 w-full mb-4 rounded-lg overflow-hidden flex items-center justify-center border-8 border-gray-300 relative">
+        <img *ngIf="currentCard" [src]="currentCard.images.small" [alt]="currentCard.name"
+             class="max-w-full max-h-full transition-all duration-300"
+             [class.blurred]="isBlurred"
+             [class.opacity-100]="!isLoading"
+             [class.opacity-0]="isLoading" />
+        <div *ngIf="isLoading" class="absolute inset-0 flex items-center justify-center">
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-700"></div>
+        </div>
+        <div *ngIf="isRestarting" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70">
+          <p class="text-white text-xl font-bold text-center">
+            Game Over!<br>Restarting...
+          </p>
+        </div>
+      </div>
+
+      <!-- Hint Section -->
+      <div class="hint bg-yellow-400 p-2 rounded-md text-center">
+        <p *ngIf="currentCard" class="text-sm text-gray-800 font-bold">
+          Hint: It's a {{getCurrentCardType()}} type Pokémon!
+        </p>
+        <p *ngIf="!currentCard" class="text-sm text-gray-800 font-bold">
+          Loading hint...
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel bg-red-800 p-4 rounded-2xl flex-1 flex flex-col">
+      <!-- Options Screen -->
+      <div class="options-screen bg-blue-200 flex-grow w-full mb-4 rounded-lg p-2 flex flex-col justify-center">
+        <button *ngFor="let option of options"
+                class="pokedex-button mb-2 last:mb-0"
+                (click)="checkAnswer(option)"
+                [disabled]="isLoading || isRestarting"
+                [class.incorrect-answer]="incorrectAnswer === option">
+          {{option}}
+        </button>
+      </div>
+
+      <!-- Control Buttons -->
+      <div class="controls flex justify-end">
+        <button class="pokedex-button-small" (click)="skipCard()" [disabled]="isLoading || isRestarting">Run</button>
+      </div>
+    </div>
+  </div>
+</div>

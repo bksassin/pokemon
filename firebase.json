@@ -1,0 +1,22 @@
+{
+  "hosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-east1"
+    },
+    "rewrites": [
+  {
+    "source": "**",
+    "run": {
+      "serviceId": "ssrwhatpokemon",
+      "region": "us-east1"
+    }
+  }
+]
+  }
+}
