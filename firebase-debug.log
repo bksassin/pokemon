@@ -1,0 +1,25 @@
+[debug] [2024-09-19T06:24:43.581Z] ----------------------------------------------------------------------
+[debug] [2024-09-19T06:24:43.584Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-09-19T06:24:43.584Z] CLI Version:   13.16.0
+[debug] [2024-09-19T06:24:43.584Z] Platform:      linux
+[debug] [2024-09-19T06:24:43.584Z] Node Version:  v20.11.0
+[debug] [2024-09-19T06:24:43.584Z] Time:          Thu Sep 19 2024 02:24:43 GMT-0400 (Eastern Daylight Time)
+[debug] [2024-09-19T06:24:43.585Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-19T06:24:43.658Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-19T06:24:43.659Z] > authorizing via signed-in user (bksassin@gmail.com)
+[debug] [2024-09-19T06:24:43.659Z] [iam] checking project what-pokemon for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-09-19T06:24:43.660Z] > refreshing access token with scopes: []
+[debug] [2024-09-19T06:24:43.662Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-09-19T06:24:43.662Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-09-19T06:24:44.387Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-09-19T06:24:44.387Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-09-19T06:24:44.398Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/what-pokemon:testIamPermissions [none]
+[debug] [2024-09-19T06:24:44.399Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/what-pokemon:testIamPermissions x-goog-quota-user=projects/what-pokemon
+[debug] [2024-09-19T06:24:44.399Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/what-pokemon:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-19T06:24:44.731Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/what-pokemon:testIamPermissions 200
+[debug] [2024-09-19T06:24:44.732Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/what-pokemon:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-19T06:24:44.733Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/what-pokemon [none]
+[debug] [2024-09-19T06:24:45.265Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/what-pokemon 200
+[debug] [2024-09-19T06:24:45.265Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/what-pokemon {"projectId":"what-pokemon","projectNumber":"832722942234","displayName":"what-pokemon","name":"projects/what-pokemon","resources":{"hostingSite":"what-pokemon"},"state":"ACTIVE","etag":"1_9e1342b2-dbc2-42c8-85c4-48e1ebcf9fd4"}
+[debug] [2024-09-19T06:24:47.719Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/what-pokemon/sites pageToken=&pageSize=10
