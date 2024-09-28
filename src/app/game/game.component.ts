@@ -23,6 +23,7 @@ export class GameComponent implements OnInit, OnDestroy {
   incorrectAnswer: string | null = null;
   wrongAnswerCount: number = 0;
   isRestarting: boolean = false;
+  isLensFlashing: boolean = false;
 
   private backgroundAudio: HTMLAudioElement;
   private correctSound: HTMLAudioElement;
@@ -144,6 +145,7 @@ export class GameComponent implements OnInit, OnDestroy {
       if (this.score > this.highScore) {
         this.highScore = this.score;
       }
+      this.flashLens();
       setTimeout(() => this.loadNewCard(), 2000);
     } else {
       this.playSound(this.incorrectSound);
@@ -156,6 +158,13 @@ export class GameComponent implements OnInit, OnDestroy {
         setTimeout(() => this.restartGame(), 3000); // Increased delay to show restart message
       }
     }
+  }
+
+  flashLens() {
+    this.isLensFlashing = true;
+    setTimeout(() => {
+      this.isLensFlashing = false;
+    }, 500); // Flash for 500ms
   }
 
   flashIncorrectAnswer(selectedOption: string) {

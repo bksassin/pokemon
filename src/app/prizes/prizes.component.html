@@ -1,0 +1,13 @@
+<div class="prizes-container">
+  <h2 class="prizes-title">{{ message }}</h2>
+  <p class="prizes-deadline">Current Contest Ends: {{ deadline }}<br>You will be notified via email to receive your prize.</p>
+
+  <div class="prizes-list">
+    <div *ngFor="let prize of prizes" class="prize-card">
+      <div class="prize-place">{{ prize.place }} Place</div>
+      <img [src]="prize.imageUrl" [alt]="prize.title" class="prize-image">
+      <h3 class="prize-title">{{ prize.title }}</h3>
+      <p class="prize-description">{{ prize.description }}</p>
+    </div>
+  </div>
+</div>

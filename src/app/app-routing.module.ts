@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MainComponent } from './main/main.component';
 import { GameComponent } from './game/game.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { AboutComponent } from './about/about.component';
 import { HowToPlayComponent } from './how-to-play/how-to-play.component';
 
 const routes: Routes = [
@@ -14,13 +12,13 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     children: [
-      { path: 'game', component: GameComponent },
-      { path: 'leaderboard', component: LeaderboardComponent },
-      { path: 'about', component: AboutComponent },
-      { path: '', redirectTo: 'game', pathMatch: 'full' }
+      { path: '', component: GameComponent },
+      { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
-  }
+  },
+  { path: '**', redirectTo: '' }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -1,29 +1,61 @@
-<div class="flex flex-col min-h-screen bg-gradient-to-br from-teal-800 to-purple-900">
-  <header class="bg-white bg-opacity-10 backdrop-blur-md shadow-lg">
-    <div class="container mx-auto px-4">
-      <div class="flex justify-center py-4 md:py-6">
-        <img src="/assets/title.png" alt="Who's That Pokémon?" class="h-10 md:h-12 object-contain">
+<div class="flex flex-col relative">
+  <header class="z-10">
+    <div class="container mx-auto px-2 sm:px-4">
+      <div class="flex justify-between items-center py-2 sm:py-4">
+        <!-- Logo -->
+        <img src="/assets/title.png" alt="Who's That Pokémon?" class="h-6 sm:h-8 md:h-10 object-contain md:mr-auto">
+
+        <!-- Login/Signup -->
+        <div class=" items-center space-x-1 text-[10px] sm:text-xs flex">
+          <button (click)="openAuthModal(true)" class="text-white hover:text-blue-300 transition duration-300">
+            Login
+          </button>
+          <span class="text-gray-500">|</span>
+          <button (click)="openAuthModal(false)" class="text-white hover:text-green-300 transition duration-300">
+            Sign Up
+          </button>
+        </div>
+
+          <!-- Minimalist User / HighScore -->
+          <div class="hidden items-center space-x-2 text-xs sm:text-sm">
+            <span class="font-semibold text-yellow-400">User1234</span>
+            <span class="text-white">High Score: <span class="font-bold">12345</span></span>
+          </div>
+
       </div>
-
-      <nav class="pb-4">
-        <ul class="flex justify-center space-x-2 md:space-x-4">
-          <li>
-            <a routerLink="game" routerLinkActive="bg-purple-600 text-white" class="px-3 md:px-4 py-2 rounded-full text-white hover:bg-purple-500 transition duration-300 text-sm md:text-base">Game</a>
-          </li>
-          <li>
-            <a routerLink="leaderboard" routerLinkActive="bg-purple-600 text-white" class="px-3 md:px-4 py-2 rounded-full text-white hover:bg-purple-500 transition duration-300 text-sm md:text-base">Leaderboard</a>
-          </li>
-          <li>
-            <a routerLink="about" routerLinkActive="bg-purple-600 text-white" class="px-3 md:px-4 py-2 rounded-full text-white hover:bg-purple-500 transition duration-300 text-sm md:text-base">About</a>
-          </li>
-        </ul>
-      </nav>
     </div>
-  </header>
 
-  <div class="flex-grow overflow-auto">
+    <!-- Navigation -->
+    <nav class="mt-2 sm:mt-4">
+      <ul class="nav-tabs">
+        <li>
+          <button (click)="openAboutModal()" class="nav-tab teal">
+            About
+          </button>
+        </li>
+        <li>
+          <button (click)="openLeaderboardModal()" class="nav-tab purple">
+            Leaderboard
+          </button>
+        </li>
+        <li>
+          <button (click)="openPrizesModal()" class="nav-tab gold">
+            Prizes
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="flex-grow">
     <div class="container mx-auto px-4 py-6">
       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
+
+<app-auth-modal
+  [isOpen]="isAuthModalOpen"
+  [isLogin]="isLoginMode"
+  (closeModal)="closeAuthModal()"
+  (toggleMode)="toggleAuthMode($event)">
+</app-auth-modal>

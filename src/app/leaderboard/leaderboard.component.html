@@ -1,4 +1,4 @@
-<div class="min-h-screen  from-teal-800 to-purple-900 text-white p-4 md:p-6">
+<div class="min-h-screen from-teal-800 to-purple-900 text-white p-4 md:p-6">
   <div class="max-w-2xl mx-auto">
     <h2 class="text-3xl font-bold mb-6 text-center text-purple-300">Leaderboard</h2>
 
@@ -15,11 +15,20 @@
           <tbody>
             <tr *ngFor="let entry of leaderboardEntries; let i = index"
                 [ngClass]="{'bg-teal-500 bg-opacity-20': i === 0, 'bg-white bg-opacity-5': i % 2 !== 0}">
-              <td class="px-4 py-3">
-                <span [ngClass]="{'text-yellow-300 font-bold': i === 0, 'text-teal-300 font-semibold': i === 1 || i === 2, 'text-white': i > 2}">
-                  {{ i + 1 }}
-                </span>
-              </td>
+                <td class="px-4 py-3 flex items-center">
+                  <span class="mr-2">
+                    <svg *ngIf="i < 3" class="w-6 h-6" [ngClass]="{
+                      'text-yellow-400': i === 0,
+                      'text-gray-300': i === 1,
+                      'text-yellow-700': i === 2
+                    }" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </span>
+                  <span [ngClass]="{'font-bold': i < 3, 'text-white': i >= 3}">
+                    {{ i + 1 }}
+                  </span>
+                </td>
               <td class="px-4 py-3">{{ entry.username }}</td>
               <td class="px-4 py-3 font-semibold text-right">{{ entry.score }}</td>
             </tr>
